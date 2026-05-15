@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "STM32 Debug (OpenOCD)",
+            "type": "cortex-debug",
+            "request": "launch",
+
+            "servertype": "openocd",
+
+            "cwd": "${workspaceFolder}",
+
+            "executable": "${workspaceFolder}/build/Debug/BlinkyHelloWorld.elf",
+
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f4x.cfg"
+            ],
+
+            "device": "STM32F401RE",
+
+            "runToEntryPoint": "main",
+
+            "preLaunchTask": "Flash STM32",
+
+            "showDevDebugOutput": false
+        }
+    ]
+}
