@@ -11,7 +11,8 @@ cmake_minimum_required(VERSION 3.22)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON)
-
+set(CONFIGFILE <your_config_file>) # Replace <your_config_file> with the actual name of your configuration file, e.g., "stlink.cfg", "jlink.cfg", etc.
+set(TARGETDEVICE <your_target_device>) # Replace <your_target_device> with the actual target device you are using, e.g., "stm32f4x.cfg", "stm32f1x.cfg", etc.
 
 # Define the build type
 if(NOT CMAKE_BUILD_TYPE)
@@ -19,7 +20,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Set the project name
-set(CMAKE_PROJECT_NAME BlinkyHelloWorld)
+set(CMAKE_PROJECT_NAME <Your Project Name>) # Replace <Your Project Name> with the actual name of your project
 
 # Enable compile command to ease indexing with e.g. clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
@@ -69,8 +70,8 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 
 add_custom_target(flash
     COMMAND openocd
-        -f interface/stlink.cfg
-        -f target/stm32f4x.cfg
+        -f interface/${CONFIGFILE}
+        -f target/${TARGETDEVICE}
         -c "program ${CMAKE_PROJECT_NAME}.elf verify reset exit"
     DEPENDS ${CMAKE_PROJECT_NAME}
 )

@@ -10,14 +10,14 @@
 
             "cwd": "${workspaceFolder}",
 
-            "executable": "${workspaceFolder}/build/Debug/BlinkyHelloWorld.elf",
+            "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
 
             "configFiles": [
-                "interface/stlink.cfg",
-                "target/stm32f4x.cfg"
+                "interface/<your_debugger>.cfg", // Replace <your_debugger> with the actual debugger you are using, e.g., "stlink", "jlink", etc.
+                "target/<target_device>.cfg" // Replace <target_device> with the actual target device you are using, e.g., "stm32f4x.cfg", "stm32f1x.cfg", etc.
             ],
 
-            "device": "STM32F401RE",
+            "device": "<Your Device>", // Replace <Your Device> with the actual device you are using, e.g., "STM32F407VG", "STM32F103C8", etc.
 
             "runToEntryPoint": "main",
 
